@@ -13,7 +13,7 @@ public class OpenGame1Script : MonoBehaviour
     public bool dialogueActive;
     public GameObject gameCanvas;
     public GameObject Button; 
-    
+    public GameObject gameOverCanvas;
     int boardSize = 32;
     float space = 450.0f;
     float row = 30.0f;
@@ -31,7 +31,7 @@ public class OpenGame1Script : MonoBehaviour
     public GameObject finalScoreBox;
     public TMP_Text extractModeTXT;
     public TMP_Text scanModeTXT;
-      
+    public ScanMode SMS;
     
     void Start()
     {
@@ -41,7 +41,7 @@ public class OpenGame1Script : MonoBehaviour
         gameCanvas.SetActive(false);
         clickCount = 3;
         finalScoreBox.SetActive(false);
-        
+        gameOverCanvas.SetActive(false);
         
     }
     void Update()
@@ -49,16 +49,18 @@ public class OpenGame1Script : MonoBehaviour
        
         scoreTXT.text = resoursePoints.ToString();
         clickCountTXT.text = clickCount.ToString();
-        finalScoreTXT.text = resoursePoints.ToString();
+        finalScoreTXT.text = "Final Score:" + resoursePoints.ToString();
 
         if(clickCount <= 0)
         {
             
             finalScoreBox.SetActive(true);
-            Button.SetActive(false);
-            
-            
+            gameOverCanvas.SetActive(true);
+            gameCanvas.SetActive(false);
+           // Button.GetComponent<Button>().interactable = false;
+            //CO.GetComponent<Button>().interactable = false;
         }
+        
         if (Input.GetKeyDown(KeyCode.Space) && dialogueActive)
         {
             if (dialogueBox.activeInHierarchy)
@@ -94,7 +96,14 @@ public class OpenGame1Script : MonoBehaviour
        gameCanvas.SetActive(false);
        PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
        PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+       
+   }
 
+   public void QuitButtonPressed2()
+   {
+       gameOverCanvas.SetActive(false);
+       PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
+       PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
    }
 
     private void OnTriggerEnter(Collider other)
