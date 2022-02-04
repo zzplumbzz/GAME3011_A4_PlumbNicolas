@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float rotationSpeed = 2f;
     public bool canMove;
 
     // Start is called before the first frame update
@@ -25,7 +26,7 @@ public class PlayerMovementScript : MonoBehaviour
             if(Input.GetKey(KeyCode.A))
             {
                 
-                this.transform.Rotate(Vector3.up, -2);
+                this.transform.Rotate(Vector3.up, -rotationSpeed);
             }
             if(Input.GetKey(KeyCode.S))
             {
@@ -34,31 +35,9 @@ public class PlayerMovementScript : MonoBehaviour
             if(Input.GetKey(KeyCode.D))
             {
                 
-                this.transform.Rotate(Vector3.up, 2);
+                this.transform.Rotate(Vector3.up, rotationSpeed);
             }
         }
-        else
-        {
-            canMove = false;
-            moveSpeed = 0f;
-            if(Input.GetKey(KeyCode.W))
-            {
-                this.transform.Translate(Vector3.forward);
-            }
-            if(Input.GetKey(KeyCode.A))
-            {
-                
-                this.transform.Rotate(Vector3.up);
-            }
-            if(Input.GetKey(KeyCode.S))
-            {
-                this.transform.Translate(Vector3.back);
-            }
-            if(Input.GetKey(KeyCode.D))
-            {
-                
-                this.transform.Rotate(Vector3.up);
-            }
-        }
+        
     }
 }
