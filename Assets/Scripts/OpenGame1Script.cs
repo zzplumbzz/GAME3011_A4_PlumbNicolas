@@ -14,6 +14,8 @@ public class OpenGame1Script : MonoBehaviour
     public GameObject gameCanvas;
     public GameObject Button; 
     public GameObject gameOverCanvas;
+    public GameObject gameOverCanvasBG;
+    public GameObject quitButton2;
     int boardSize = 32;
     float space = 450.0f;
     float row = 30.0f;
@@ -44,6 +46,18 @@ public class OpenGame1Script : MonoBehaviour
         gameOverCanvas.SetActive(false);
         
     }
+
+    public void QuitButtonPressed()
+   {
+       gameCanvas.SetActive(false);
+       gameOverCanvas.SetActive(false);
+       gameOverCanvasBG.SetActive(false);
+       finalScoreBox.SetActive(false);
+       PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
+       PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+       
+   }
+
     void Update()
     {
        
@@ -51,15 +65,7 @@ public class OpenGame1Script : MonoBehaviour
         clickCountTXT.text = clickCount.ToString();
         finalScoreTXT.text = "Final Score:" + resoursePoints.ToString();
 
-        if(clickCount <= 0)
-        {
-            
-            finalScoreBox.SetActive(true);
-            gameOverCanvas.SetActive(true);
-            gameCanvas.SetActive(false);
-           // Button.GetComponent<Button>().interactable = false;
-            //CO.GetComponent<Button>().interactable = false;
-        }
+        
         
         if (Input.GetKeyDown(KeyCode.Space) && dialogueActive)
         {
@@ -85,25 +91,43 @@ public class OpenGame1Script : MonoBehaviour
         }
 
         
-
+        
         
       
 
     }
 
-   public void QuitButtonPressed()
+    void FixedUpdate()
+    {
+        if(clickCount <= 0)
+        {
+            noMoreClicks();
+        }
+    }
+
+   public void noMoreClicks()
    {
-       gameCanvas.SetActive(false);
-       PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
-       PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
-       
+       if(clickCount <= 0)
+        {
+            
+            
+            gameOverCanvas.SetActive(true);
+            gameCanvas.SetActive(false);
+            finalScoreBox.SetActive(true);
+            
+           // Button.GetComponent<Button>().interactable = false;
+            //CO.GetComponent<Button>().interactable = false;
+        }
    }
 
-   public void QuitButtonPressed2()
+   public void ExitButtonPressed()
    {
-       gameOverCanvas.SetActive(false);
-       PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
-       PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+       Application.Quit();
+    //    gameOverCanvas.SetActive(false);
+    //   //finalScoreBox.SetActive(false);
+    //     //quitButton2.SetActive(false);
+    //    PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
+    //    PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
    }
 
     private void OnTriggerEnter(Collider other)
