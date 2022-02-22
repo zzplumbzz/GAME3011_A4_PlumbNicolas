@@ -4805,7 +4805,7 @@ MonoBehaviour:
   dialogue: {fileID: 1289078652}
   dialogueActive: 0
   TimerE: 0
-  timerEText: {fileID: 0}
+  timerEText: {fileID: 1377294910}
   PlayerMovementScript: {fileID: 1923483222}
   doorE: {fileID: 999628619}
   winE: {fileID: 721676216}
@@ -5152,7 +5152,7 @@ MonoBehaviour:
   dialogue: {fileID: 1289078652}
   dialogueActive: 0
   TimerH: 0
-  timerHText: {fileID: 0}
+  timerHText: {fileID: 499914476}
   doorH: {fileID: 1127355902}
   PlayerMovementScript: {fileID: 1923483222}
   winH: {fileID: 1805679259}

@@ -13,6 +13,7 @@ public class HardOpenGame : MonoBehaviour
     public TMP_Text dialogue;
     public bool dialogueActive;
     public float TimerH;
+    bool timerHOn;
     public TMP_Text timerHText;
     public GameObject doorH;
      public GameObject PlayerMovementScript;
@@ -29,6 +30,8 @@ public class HardOpenGame : MonoBehaviour
         gameOverCanvas.SetActive(false);
 
         TimerH = 15f;
+        
+        timerHOn = false;
         
         
     }
@@ -50,6 +53,7 @@ public class HardOpenGame : MonoBehaviour
                 game2CanvasH.SetActive(true);
                 dialogueBox.SetActive(false);
                 centreH.SetActive(true);
+                TimerH = 15f;
 
                 
             }
@@ -62,7 +66,15 @@ public class HardOpenGame : MonoBehaviour
             TimerH -= Time.deltaTime;
                 timerHText.text = (TimerH).ToString("0");
         }
+        else if(game2CanvasH == false)
+        {
+            TimerH = Time.timeScale = 0;
+        }
         
+        if(timerHOn == true)
+        {
+           
+        }
 
         if(winH.winH == true)
         {

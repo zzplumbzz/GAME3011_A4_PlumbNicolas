@@ -30,6 +30,7 @@ public class EasyOpenGame2Script : MonoBehaviour
 
         TimerE = 25f;
         
+        
     }
 
     // Update is called once per frame
@@ -50,7 +51,7 @@ public class EasyOpenGame2Script : MonoBehaviour
                 dialogueBox.SetActive(false);
                 centreE.SetActive(true);
                 
-                
+                TimerE = 25f;
             }
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
             PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
@@ -62,6 +63,10 @@ public class EasyOpenGame2Script : MonoBehaviour
             TimerE -= Time.deltaTime;
             timerEText.text = (TimerE).ToString("0");
                 
+        }
+        else if(game2CanvasE == false)
+        {
+           TimerE = Time.timeScale = 0;
         }
         
 

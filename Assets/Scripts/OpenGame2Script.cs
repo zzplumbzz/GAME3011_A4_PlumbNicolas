@@ -33,6 +33,7 @@ public class OpenGame2Script : MonoBehaviour
 
         Timer = 20f;
         
+        
     }
 
     // Update is called once per frame
@@ -53,7 +54,7 @@ public class OpenGame2Script : MonoBehaviour
                 dialogueBox.SetActive(false);
                
                 centre.SetActive(true);
-
+                Timer = 20f;
                 
                // Timer -= Time.deltaTime;
                // timerText.text = (Timer).ToString("0");
@@ -67,6 +68,10 @@ public class OpenGame2Script : MonoBehaviour
         {
             Timer -= Time.deltaTime;
                 timerText.text = (Timer).ToString("0");
+        }
+        else if(game2Canvas == false)
+        {
+            Timer = Time.timeScale = 0;
         }
        
         
