@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float rotationSpeed = 2f;
+    public float rotationSpeed = .5f;
     public bool canMove;
 
     // Start is called before the first frame update
