@@ -37,4 +37,9 @@ public class PlayerGame2 : MonoBehaviour
                 player.transform.RotateAround(centre.transform.position, axis, Time.deltaTime * 50);
             }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Toched Blocker!!!!");
+    }
 }

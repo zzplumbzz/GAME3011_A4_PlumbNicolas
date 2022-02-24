@@ -18,6 +18,7 @@ public class EasyOpenGame2Script : MonoBehaviour
     public GameObject doorE;
     public WinEasyScript winE;
     public GameObject centreE;
+    bool timerEOn;
 
  
     
@@ -29,7 +30,7 @@ public class EasyOpenGame2Script : MonoBehaviour
         gameOverCanvas.SetActive(false);
 
         TimerE = 25f;
-        
+        timerEOn = false;
         
     }
 
@@ -37,6 +38,7 @@ public class EasyOpenGame2Script : MonoBehaviour
     void Update()
     {
        
+       timerEText.text = (TimerE).ToString("0");
 
         if (TimerE <= 0)//loads game over scene when countdown reaches 0
         {
@@ -50,25 +52,18 @@ public class EasyOpenGame2Script : MonoBehaviour
                 game2CanvasE.SetActive(true);
                 dialogueBox.SetActive(false);
                 centreE.SetActive(true);
-                
+                timerEOn = true;
                 TimerE = 25f;
             }
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
             PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
         }
-
-
-        if(game2CanvasE == true)
+        
+        if(timerEOn == true)
         {
             TimerE -= Time.deltaTime;
-            timerEText.text = (TimerE).ToString("0");
                 
         }
-        else if(game2CanvasE == false)
-        {
-           TimerE = Time.timeScale = 0;
-        }
-        
 
         if(winE.winE == true)
         {
@@ -76,6 +71,18 @@ public class EasyOpenGame2Script : MonoBehaviour
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
         }
+    }
+
+    private void StartTimerE()
+    {
+        if(game2CanvasE == true)
+        {
+            timerEOn = true;
+
+            
+        }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -106,5 +113,6 @@ public class EasyOpenGame2Script : MonoBehaviour
         game2CanvasE.SetActive(false);
         PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+        timerEOn = false;
     }
 }

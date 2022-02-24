@@ -39,7 +39,7 @@ public class HardOpenGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        timerHText.text = (TimerH).ToString("0");
 
         if (TimerH <= 0)//loads game over scene when countdown reaches 0
         {
@@ -54,33 +54,35 @@ public class HardOpenGame : MonoBehaviour
                 dialogueBox.SetActive(false);
                 centreH.SetActive(true);
                 TimerH = 15f;
-
+                timerHOn = true;
                 
             }
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
         }
 
-        if(game2CanvasH == true)
-        {
-            TimerH -= Time.deltaTime;
-                timerHText.text = (TimerH).ToString("0");
-        }
-        else if(game2CanvasH == false)
-        {
-            TimerH = Time.timeScale = 0;
-        }
-        
         if(timerHOn == true)
         {
-           
+            TimerH -= Time.deltaTime;
+                
         }
 
         if(winH.winH == true)
         {
             Destroy(doorH);
              PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
-       PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+            PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+        }
+    }
+
+
+    private void StartTimerH()
+    {
+        if(game2CanvasH == true)
+        {
+            timerHOn = true;
+
+            
         }
     }
 
@@ -114,5 +116,6 @@ public class HardOpenGame : MonoBehaviour
         game2CanvasH.SetActive(false);
         PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
        PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+       timerHOn = false;
     }
 }

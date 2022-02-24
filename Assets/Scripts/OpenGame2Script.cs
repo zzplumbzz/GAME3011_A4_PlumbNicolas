@@ -18,7 +18,7 @@ public class OpenGame2Script : MonoBehaviour
     public GameObject PlayerMovementScript;
     public GameObject doorM;
     public WinGame2Script winS;
-
+    public bool timerOn;
     public GameObject centre;
 
     
@@ -30,7 +30,7 @@ public class OpenGame2Script : MonoBehaviour
         gameOverCanvas.SetActive(false);
 
         
-
+        timerOn = false;
         Timer = 20f;
         
         
@@ -40,6 +40,7 @@ public class OpenGame2Script : MonoBehaviour
     void Update()
     {
         
+        timerText.text = (Timer).ToString("0");
 
         if (Timer <= 0)//loads game over scene when countdown reaches 0
         {
@@ -52,7 +53,7 @@ public class OpenGame2Script : MonoBehaviour
             {
                 game2Canvas.SetActive(true);
                 dialogueBox.SetActive(false);
-               
+               timerOn = true;
                 centre.SetActive(true);
                 Timer = 20f;
                 
@@ -63,18 +64,13 @@ public class OpenGame2Script : MonoBehaviour
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
         }
-
-        if(game2Canvas == true)
+       
+        if(timerOn == true)
         {
             Timer -= Time.deltaTime;
-                timerText.text = (Timer).ToString("0");
+                
         }
-        else if(game2Canvas == false)
-        {
-            Timer = Time.timeScale = 0;
-        }
-       
-        
+
         if(winS.win == true)
         {
             Destroy(doorM);
@@ -82,6 +78,16 @@ public class OpenGame2Script : MonoBehaviour
        PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
         }
         
+    }
+
+    private void StartTimer()
+    {
+        if(game2Canvas == true)
+        {
+            timerOn = true;
+
+            
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -112,5 +118,6 @@ public class OpenGame2Script : MonoBehaviour
         game2Canvas.SetActive(false);
         PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
        PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
+       timerOn = false;
     }
 }
