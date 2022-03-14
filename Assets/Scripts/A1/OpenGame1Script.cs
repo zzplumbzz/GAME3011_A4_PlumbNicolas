@@ -41,9 +41,10 @@ public class OpenGame1Script : MonoBehaviour
         PO = gameCanvas;
         dialogueBox.SetActive(false);
         gameCanvas.SetActive(false);
+        gameOverCanvas.SetActive(false);
         clickCount = 3;
         finalScoreBox.SetActive(false);
-        gameOverCanvas.SetActive(false);
+        
         
     }
 

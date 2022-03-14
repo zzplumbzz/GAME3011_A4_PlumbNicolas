@@ -14,11 +14,12 @@ public class EasyOpenGame2Script : MonoBehaviour
     public bool dialogueActive;
     public float TimerE;
     public TMP_Text timerEText;
+    bool timerEOn;
     public GameObject PlayerMovementScript;
     public GameObject doorE;
     public WinEasyScript winE;
     public GameObject centreE;
-    bool timerEOn;
+    
 
  
     
