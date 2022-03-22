@@ -4027,6 +4027,15 @@ MonoBehaviour:
   width: 0
   height: 0
   tilePrefab: {fileID: 2594675541871631569, guid: b7120a99b518a04459f29984ca8ad372, type: 3}
+  sprites:
+  - {fileID: 1777558742427012895, guid: 988685fc1df7ad14b9bc92cb2bd97de8, type: 3}
+  - {fileID: 1777558742427012895, guid: 0a5100cb745bb3f439800e24c9d5ade1, type: 3}
+  - {fileID: 1777558742427012895, guid: d420078fe85e9e14ba162b9461861349, type: 3}
+  - {fileID: 1777558742427012895, guid: 4b36c0c66929e2a429a31ec88ccdb37a, type: 3}
+  - {fileID: 1777558742427012895, guid: 00dbab048ab39104d80d4101e7a32386, type: 3}
+  - {fileID: 1777558742427012895, guid: 14257ff9a1cc8594dba6dae9470c3072, type: 3}
+  - {fileID: 1777558742427012895, guid: f2de54de2a8f48546a87076e113ef2ef, type: 3}
+  - {fileID: 1777558742427012895, guid: 1da100e2ea2bc0b4c8fb0c2d68db3790, type: 3}
   PO: {fileID: 0}
   CO: {fileID: 0}
 --- !u!65 &581843699
@@ -6130,7 +6139,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 581843698}
         m_TargetAssemblyTypeName: OpenGame3Hard, Assembly-CSharp
         m_MethodName: QuitButtonPressed
         m_Mode: 1

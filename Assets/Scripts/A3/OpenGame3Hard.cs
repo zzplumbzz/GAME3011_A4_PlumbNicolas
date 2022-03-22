@@ -22,13 +22,14 @@ public class OpenGame3Hard : MonoBehaviour
     public int height;
     public GameObject tilePrefab;
     private BGTile[,] allTiles;
-    public GameObject[,] allSprites;
+    //public GameObject[,] allSprites;
+    public GameObject[] sprites;
     public GameObject PO;
     public GameObject CO;
-    public BGTile BGT;
+    
     
 
-    int boardSize = 14;
+    int boardSize = 11;
     float space = 450.0f;
     float row = 70.0f;
 
@@ -64,6 +65,7 @@ public class OpenGame3Hard : MonoBehaviour
             if (dialogueBox.activeInHierarchy)
             {
                 allTiles = new BGTile[width, height];
+                //allSprites = new GameObject[width, height];
                 SetUp();
 
                 gameCanvas3H.SetActive(true);
@@ -92,7 +94,11 @@ public class OpenGame3Hard : MonoBehaviour
                 CO = Instantiate(tilePrefab, new Vector3(space += 70f,row ,0f), Quaternion.identity) as GameObject;
                 CO.transform.parent = PO.transform;
                 tilePrefab.transform.parent = this.transform;
-                
+
+                int spriteToUse = Random.Range(0, sprites.Length);
+                GameObject sprite = Instantiate(sprites[spriteToUse], transform.position,Quaternion.identity);
+                sprite.transform.parent = this.transform;
+                //allSprites[i, j] = sprite;
                 
                 
             }

@@ -20,7 +20,7 @@ public class BGTile : MonoBehaviour
     void Initialize()
     {
         int spriteToUse = Random.Range(0, sprites.Length);
-                GameObject sprite = Instantiate(sprites[spriteToUse], transform.position,Quaternion.identity);
-                sprite.transform.parent = this.transform;
+        GameObject sprite = Instantiate(sprites[spriteToUse], transform.position,Quaternion.identity);
+        sprite.transform.parent = this.transform;
     }
 }
