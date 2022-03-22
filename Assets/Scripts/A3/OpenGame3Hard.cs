@@ -22,9 +22,10 @@ public class OpenGame3Hard : MonoBehaviour
     public int height;
     public GameObject tilePrefab;
     private BGTile[,] allTiles;
+    public GameObject[,] allSprites;
     public GameObject PO;
     public GameObject CO;
-
+    public BGTile BGT;
     
 
     int boardSize = 14;
@@ -91,7 +92,7 @@ public class OpenGame3Hard : MonoBehaviour
                 CO = Instantiate(tilePrefab, new Vector3(space += 70f,row ,0f), Quaternion.identity) as GameObject;
                 CO.transform.parent = PO.transform;
                 tilePrefab.transform.parent = this.transform;
-
+                
                 
                 
             }
