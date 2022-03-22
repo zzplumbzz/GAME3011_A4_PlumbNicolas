@@ -31,6 +31,12 @@ public class OpenGame3Hard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(timer3HOn == true)
+        {
+            Timer3H -= Time.deltaTime;
+                
+        }
         timer3HText.text = (Timer3H).ToString("0");
 
         if (Timer3H <= 0)//loads game over scene when countdown reaches 0
@@ -53,11 +59,7 @@ public class OpenGame3Hard : MonoBehaviour
         PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
             
-        if(timer3HOn == true)
-        {
-            Timer3H -= Time.deltaTime;
-                
-        }
+        
             
         }
     }
