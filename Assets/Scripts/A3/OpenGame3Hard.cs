@@ -18,9 +18,23 @@ public class OpenGame3Hard : MonoBehaviour
     public TMP_Text timer3HText;
     bool timer3HOn;
 
+    public int width;
+    public int height;
+    public GameObject tilePrefab;
+    private BGTile[,] allTiles;
+    public GameObject PO;
+    public GameObject CO;
+
+    
+
+    int boardSize = 14;
+    float space = 450.0f;
+    float row = 70.0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        PO = gameCanvas3H;
         dialogueBox.SetActive(false);
         gameCanvas3H.SetActive(false);
         gameOverCanvas.SetActive(false);
@@ -48,7 +62,9 @@ public class OpenGame3Hard : MonoBehaviour
         {
             if (dialogueBox.activeInHierarchy)
             {
-                
+                allTiles = new BGTile[width, height];
+                SetUp();
+
                 gameCanvas3H.SetActive(true);
                 dialogueBox.SetActive(false);
                 timer3HOn = true;
@@ -61,6 +77,26 @@ public class OpenGame3Hard : MonoBehaviour
             
         
             
+        }
+    }
+
+    private void SetUp()
+    {
+        for (int i = 0; i < boardSize; i++)
+        {
+            for(int j = 0; j < boardSize; j++)
+            {
+                
+                
+                CO = Instantiate(tilePrefab, new Vector3(space += 70f,row ,0f), Quaternion.identity) as GameObject;
+                CO.transform.parent = PO.transform;
+                tilePrefab.transform.parent = this.transform;
+
+                
+                
+            }
+            space = 450f;
+            row += 70f;
         }
     }
 

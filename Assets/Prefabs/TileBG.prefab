@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4099516298088439573}
   - component: {fileID: 6954965284050696506}
   - component: {fileID: 3944856921076569933}
+  - component: {fileID: -7006111431724830875}
   m_Layer: 0
   m_Name: TileBG
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 65, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6954965284050696506
 CanvasRenderer:
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.03532791, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -76,3 +77,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-7006111431724830875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594675541871631569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be2bb9ce903e8c044a0ac85ed67d1d4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1777558742427012895, guid: 1da100e2ea2bc0b4c8fb0c2d68db3790, type: 3}
+  - {fileID: 1777558742427012895, guid: f2de54de2a8f48546a87076e113ef2ef, type: 3}
+  - {fileID: 1777558742427012895, guid: 14257ff9a1cc8594dba6dae9470c3072, type: 3}
+  - {fileID: 1777558742427012895, guid: 00dbab048ab39104d80d4101e7a32386, type: 3}
+  - {fileID: 1777558742427012895, guid: 4b36c0c66929e2a429a31ec88ccdb37a, type: 3}
+  - {fileID: 1777558742427012895, guid: d420078fe85e9e14ba162b9461861349, type: 3}
+  - {fileID: 1777558742427012895, guid: 0a5100cb745bb3f439800e24c9d5ade1, type: 3}
+  - {fileID: 1777558742427012895, guid: 988685fc1df7ad14b9bc92cb2bd97de8, type: 3}
