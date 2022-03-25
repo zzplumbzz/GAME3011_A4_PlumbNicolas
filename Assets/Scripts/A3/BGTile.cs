@@ -17,6 +17,7 @@ public class BGTile : MonoBehaviour
         
     }
 
+
     void Initialize()
     {
         int spriteToUse = Random.Range(0, sprites.Length);
