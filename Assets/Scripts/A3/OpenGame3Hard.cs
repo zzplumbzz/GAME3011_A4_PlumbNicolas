@@ -39,7 +39,7 @@ public class OpenGame3Hard : MonoBehaviour
     int boardSize = 11;
     float space = 600.0f;
     float row = 70.0f;
-    public int PointsH;
+    public float PointsH;
     public TMP_Text pointsTXTH;
 
    
@@ -50,6 +50,7 @@ public class OpenGame3Hard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PointsH = 0f;
         winCanvas.SetActive(false);
         CapsuleH = GameObject.Find("CapsuleH");
         tilePrefab.GetComponent<Button>().interactable = true;
@@ -140,14 +141,14 @@ public class OpenGame3Hard : MonoBehaviour
         
         if(CapsuleH.GetComponent<OpenGame3Hard>().temp.Count >= 2)
         {
-            
+            PointsH += 10f;
             Vector3 tempV = CapsuleH.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position;
             CapsuleH.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position = CapsuleH.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position;
             CapsuleH.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position = tempV;
-            PointsH += 10;
+            PointsH += 10f;
              CapsuleH.GetComponent<OpenGame3Hard>().temp.RemoveAt(1);
              CapsuleH.GetComponent<OpenGame3Hard>().temp.RemoveAt(0);
-            
+            PointsH += 10f;
             // for (int i = 0; i < boardSize; i++)
             // {
             //     for(int j = 0; j < boardSize; j++)

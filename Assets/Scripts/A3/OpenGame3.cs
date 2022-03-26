@@ -22,7 +22,7 @@ public class OpenGame3 : MonoBehaviour
     public int width;
     public int height;
     public GameObject tilePrefab;
-    public int Points;
+    public float Points;
     public TMP_Text pointsTXT;
     
     public List<GameObject> swap = new List<GameObject>();
@@ -47,6 +47,7 @@ public class OpenGame3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Points = 0f;
         winCanvas.SetActive(false);
         Capsule = GameObject.Find("Capsule");
         tilePrefab.GetComponent<Button>().interactable = true;
@@ -68,7 +69,7 @@ public class OpenGame3 : MonoBehaviour
                 
         }
 
-        if(Points == 150)
+        if(Points == 150f)
         {
             winCanvas.SetActive(true);
         }
@@ -125,7 +126,7 @@ public class OpenGame3 : MonoBehaviour
     public void OnTilePressed(Button button)
     {
         
-       
+       Points += 15f;
         Capsule = GameObject.Find("Capsule");
         
         Capsule.GetComponent<OpenGame3Hard>().temp.Add(button);
@@ -133,14 +134,14 @@ public class OpenGame3 : MonoBehaviour
         
         if(Capsule.GetComponent<OpenGame3Hard>().temp.Count >= 2)
         {
-            
+            Points += 15f;
             Vector3 tempV = Capsule.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position;
             Capsule.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position = Capsule.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position;
             Capsule.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position = tempV;
-            Points += 15;
+            Points += 15f;
              Capsule.GetComponent<OpenGame3Hard>().temp.RemoveAt(1);
              Capsule.GetComponent<OpenGame3Hard>().temp.RemoveAt(0);
-            
+            Points += 15f;
             // for (int i = 0; i < boardSize; i++)
             // {
             //     for(int j = 0; j < boardSize; j++)

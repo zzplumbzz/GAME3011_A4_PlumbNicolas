@@ -38,7 +38,7 @@ public class OpenGame3Easy : MonoBehaviour
     int boardSize = 11;
     float space = 600.0f;
     float row = 70.0f;
-    public int PointsE;
+    public float PointsE;
     public TMP_Text pointsTXTE;
 
    
@@ -47,6 +47,7 @@ public class OpenGame3Easy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PointsE = 0f;
         winCanvas.SetActive(false);
         CapsuleE = GameObject.Find("CapsuleH");
         tilePrefab.GetComponent<Button>().interactable = true;
@@ -124,19 +125,19 @@ public class OpenGame3Easy : MonoBehaviour
     public void OnTilePressed(Button button)
     {
         
-       
+       PointsE += 20f;
         CapsuleE = GameObject.Find("CapsuleE");
         
         CapsuleE.GetComponent<OpenGame3Hard>().temp.Add(button);
          CapsuleE.GetComponent<OpenGame3Hard>().images.Add(button.gameObject.transform.GetChild(0).GetComponent<Image>());
-        
+        PointsE += 20f;
         if(CapsuleE.GetComponent<OpenGame3Hard>().temp.Count >= 2)
         {
-            
+            PointsE += 20f;
             Vector3 tempV = CapsuleE.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position;
             CapsuleE.GetComponent<OpenGame3Hard>().temp[0].gameObject.transform.position = CapsuleE.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position;
             CapsuleE.GetComponent<OpenGame3Hard>().temp[1].gameObject.transform.position = tempV;
-            PointsE += 20;
+            PointsE += 20f;
              CapsuleE.GetComponent<OpenGame3Hard>().temp.RemoveAt(1);
              CapsuleE.GetComponent<OpenGame3Hard>().temp.RemoveAt(0);
             
