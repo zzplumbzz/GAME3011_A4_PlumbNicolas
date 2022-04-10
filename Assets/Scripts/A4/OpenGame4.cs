@@ -17,9 +17,9 @@ public class OpenGame4 : MonoBehaviour
     public GameObject Door;
 
     const string menuHint = "You May Type Menu At Any Time.";
-    string[] level1Passwords = {"apple", "banana", "orange", "pear", "grape", "kiwi"};
-    string[] level2Passwords = {"chad", "stacy", "kyle", "karen", "larry", "ricky"};
-    string[] level3Passwords = {"unicorn", "sasquatch", "lockness", "chupicabra", "gremlin", "chucky"};
+    string[] ELevelPasswords = {"apple", "banana", "orange", "pear", "grape", "kiwi"};
+    string[] MLevelPasswords = {"chad", "stacy", "kyle", "karen", "larry", "ricky"};
+    string[] HLevelPasswords = {"unicorn", "sasquatch", "lockness", "chupicabra", "gremlin", "chucky"};
 
     int level;
     enum Screen{MainMenu, Password, Win};
@@ -60,9 +60,9 @@ public class OpenGame4 : MonoBehaviour
         Terminal.ClearScreen();
         Terminal.WriteLine("Assignment 4!");
         Terminal.WriteLine("Find Out the Password to unlock the door!");
-        Terminal.WriteLine("Press 1 for level 1");
-        Terminal.WriteLine("press 2 for level 2");
-        Terminal.WriteLine("press 3 for level 3");
+        Terminal.WriteLine("Press 1 for the Easy Level");
+        Terminal.WriteLine("press 2 for the Meduim Level");
+        Terminal.WriteLine("press 3 for the Hard Level");
         Terminal.WriteLine("enter your selection");
     }
 
@@ -74,7 +74,7 @@ public class OpenGame4 : MonoBehaviour
         }
         else if(input == "quit" || input == "exit" || input == "close")
         {
-            Terminal.WriteLine("If on the web close the tab");
+            //Terminal.WriteLine("If on the web close the tab");
             WM2000.SetActive(false);
         }
         else if(currentScreen == Screen.MainMenu)
@@ -120,13 +120,13 @@ public class OpenGame4 : MonoBehaviour
         switch(level)
         {
             case 1:
-                password = level1Passwords[Random.Range(0, level1Passwords.Length)];
+                password = ELevelPasswords[Random.Range(0, ELevelPasswords.Length)];
                 break;
             case 2:
-                password = level2Passwords[Random.Range(0, level2Passwords.Length)];
+                password = MLevelPasswords[Random.Range(0, MLevelPasswords.Length)];
                 break;
             case 3:
-                password = level3Passwords[Random.Range(0, level3Passwords.Length)];
+                password = HLevelPasswords[Random.Range(0, HLevelPasswords.Length)];
                 break;
             default:
                 Debug.LogError("Invalid Level Number");
