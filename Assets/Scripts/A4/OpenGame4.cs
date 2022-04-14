@@ -17,9 +17,9 @@ public class OpenGame4 : MonoBehaviour
     public GameObject Door;
 
     const string menuHint = "You May Type Menu At Any Time.";
-    string[] ELevelPasswords = {"apple", "banana", "orange", "pear", "grape", "kiwi"};
-    string[] MLevelPasswords = {"chad", "stacy", "kyle", "karen", "larry", "ricky"};
-    string[] HLevelPasswords = {"unicorn", "sasquatch", "lockness", "chupicabra", "gremlin", "chucky"};
+    string[] ELevelPasswords = {"incineroar", "pikachu", "ridley", "mewtwo", "snake", "bayonetta"};
+    string[] MLevelPasswords = {"genesis", "xbox360", "dreamcast", "playstation", "turbografix16", "gamecube"};
+    string[] HLevelPasswords = {"eldenring", "nierreplicant", "masseffect", "guiltygear", "streetfighter", "tekken"};
 
     int level;
     enum Screen{MainMenu, Password, Win};
@@ -60,10 +60,11 @@ public class OpenGame4 : MonoBehaviour
         Terminal.ClearScreen();
         Terminal.WriteLine("Assignment 4!");
         Terminal.WriteLine("Find Out the Password to unlock the door!");
-        Terminal.WriteLine("Press 1 for the Easy Level");
-        Terminal.WriteLine("press 2 for the Meduim Level");
-        Terminal.WriteLine("press 3 for the Hard Level");
+        Terminal.WriteLine("Press 1 for the Easy Level / hint: smash bros characters");
+        Terminal.WriteLine("press 2 for the Meduim Level / hint: video game consoles");
+        Terminal.WriteLine("press 3 for the Hard Level / hint: video games");
         Terminal.WriteLine("enter your selection");
+        Terminal.WriteLine("Type quit, exit or close to close the game");
     }
 
     void OnUserInput(string input)
@@ -74,7 +75,8 @@ public class OpenGame4 : MonoBehaviour
         }
         else if(input == "quit" || input == "exit" || input == "close")
         {
-            //Terminal.WriteLine("If on the web close the tab");
+            PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
+            PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
             WM2000.SetActive(false);
         }
         else if(currentScreen == Screen.MainMenu)
@@ -85,6 +87,7 @@ public class OpenGame4 : MonoBehaviour
         {
             CheckPassword(input);
         }
+        
     }
 
     void RunMainMenu(string input)
@@ -113,6 +116,8 @@ public class OpenGame4 : MonoBehaviour
         SetRandomPassword();
         Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
         Terminal.WriteLine(menuHint);
+
+        
     }
 
     void SetRandomPassword()
