@@ -10,7 +10,8 @@ public class RobotDialogue : MonoBehaviour
     public TMP_Text NPCdialogueText;
     public TMP_Text NPCdialogue;
     public bool NPCdialogueActive;
-
+    public GameObject canvas;
+    public GameObject robotDialogueCanvas;
     public GameObject dialogueBox;
     public TMP_Text dialogueText;
     public TMP_Text dialogue;
@@ -18,6 +19,7 @@ public class RobotDialogue : MonoBehaviour
 
 void Start()
 {
+    canvas.SetActive(true);
     NPCdialogueActive = false;
     NPCdialogueBox.SetActive(false);
 }
@@ -28,15 +30,18 @@ void Start()
             if (NPCdialogueBox.activeInHierarchy)
             {
                 NPCdialogueBox.SetActive(false);
-
+                
                 
             }
             else
             {
                 dialogueActive = false;
-            dialogueBox.SetActive(false);
+                dialogueBox.SetActive(false);
                 NPCdialogueBox.SetActive(true);
                 NPCdialogueText = NPCdialogue;
+
+                robotDialogueCanvas.SetActive(true);
+                canvas.SetActive(false);
             }
         }
 
@@ -70,6 +75,7 @@ void Start()
             Debug.Log("Player in range");
             dialogueActive = false;
             dialogueBox.SetActive(false);
+            canvas.SetActive(true);
         }
     }
 }

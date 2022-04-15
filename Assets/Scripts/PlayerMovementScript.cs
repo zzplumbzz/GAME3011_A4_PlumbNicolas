@@ -7,11 +7,13 @@ public class PlayerMovementScript : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = .5f;
     public bool canMove;
+    public GameObject gameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         canMove = true;
+        gameOverCanvas.SetActive(false);
     }
 
     // Update is called once per frame

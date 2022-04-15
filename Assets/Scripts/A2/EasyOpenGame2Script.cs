@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EasyOpenGame2Script : MonoBehaviour
 {
@@ -115,5 +116,10 @@ public class EasyOpenGame2Script : MonoBehaviour
         PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 5;
         PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 2;
         timerEOn = false;
+    }
+
+    public void RestartButtonPressed()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }

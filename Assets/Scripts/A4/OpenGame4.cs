@@ -7,6 +7,10 @@ using TMPro;
 public class OpenGame4 : MonoBehaviour
 {
     public GameObject WM2000;
+    public TMP_Text TimerTXT;
+    public float Timer;
+    public bool timerOn = false;
+    public GameObject timeCanvas;
     public GameObject game4Canvas;
     public GameObject gameOverCanvas;
     public GameObject dialogueBox;
@@ -29,16 +33,32 @@ public class OpenGame4 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        timerOn = false;
         WM2000.SetActive(false);
         dialogueBox.SetActive(false);
         game4Canvas.SetActive(false);
         gameOverCanvas.SetActive(false);
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        TimerTXT.text = (Timer).ToString("0");
+
+        if(timerOn == true)
+        {
+            Timer -= Time.deltaTime;
+                
+        }
+
+        if(timerOn == true && Timer <= 0)
+        {
+            WM2000.SetActive(false);
+            gameOverCanvas.SetActive(true);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && dialogueActive)
         {
             if (dialogueBox.activeInHierarchy)
@@ -52,6 +72,8 @@ public class OpenGame4 : MonoBehaviour
             PlayerMovementScript.GetComponent<PlayerMovementScript>().moveSpeed = 0;
             PlayerMovementScript.GetComponent<PlayerMovementScript>().rotationSpeed = 0;
         }
+
+        
     }
 
     void ShowMainMenu()
@@ -72,6 +94,8 @@ public class OpenGame4 : MonoBehaviour
         if(input == "menu")
         {
             ShowMainMenu();
+            timerOn = false;
+            Timer = 0;
         }
         else if(input == "quit" || input == "exit" || input == "close")
         {
@@ -97,6 +121,30 @@ public class OpenGame4 : MonoBehaviour
         {
             level = int.Parse(input);
             AskForPassword();
+
+            if(input == "1")
+            {
+                StartTimer();
+                Timer = 100f;
+                timerOn = true;
+                
+            }
+
+            if(input == "2")
+            {
+                StartTimer();
+                Timer = 75f;
+                timerOn = true;
+                
+            }
+
+            if(input == "3")
+            {
+                StartTimer();
+                Timer = 50f;
+                timerOn = true;
+                
+            }
         }
         else if(input == "1234567890")
         {
@@ -107,6 +155,11 @@ public class OpenGame4 : MonoBehaviour
             Terminal.WriteLine("Please choose a valid level");
             Terminal.WriteLine(menuHint);
         }
+    }
+
+    public void StartTimer()
+    {
+        Timer -= Time.deltaTime;
     }
 
     void AskForPassword()
